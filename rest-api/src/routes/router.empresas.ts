@@ -5,12 +5,11 @@ const router = routerx();
 
 router.post('/add', empresa_controller.add);
 router.get('/list', empresa_controller.list);
-
-/* router.put('/deactivate', );
-router.put('/activate', );
-router.delete('/remove', );
-router.put('/update', );
-router.get('/query', ); */
+router.get('/query', empresa_controller.query);
+router.put('/update', empresa_controller.update);
+router.delete('/remove', empresa_controller.delete);
+router.put('/activate', empresa_controller.activate);
+router.put('/deactivate', empresa_controller.deactivate);
 
 
 export default router;
