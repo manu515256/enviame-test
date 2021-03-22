@@ -10,16 +10,11 @@ interface Iempresa {
 
 let empresas:Array<any> = [];
 
-let randomNum:Array<number> = []
-for (var i = 10000000; i <= 90000000; i++) randomNum.push(i);
-
-randomNum = randomNum.sort( () => .5 - Math.random()); // SHUFFLE
-
-for (let i = 0;i<600;++i){ //600 registros fakes
+for (let i = 0;i<200;++i){ //200 registros fakes
 
     let objEmpresa:Iempresa = {
         name: faker.company.companyName(),
-        rut: randomNum[i],
+        rut: faker.random.number(9000000000),
         address: faker.address.streetAddress()
     }
     empresas.push(objEmpresa);
@@ -27,6 +22,7 @@ for (let i = 0;i<600;++i){ //600 registros fakes
 
     let asd = async ()=>{
             try {
+                
                 let dbConnect = await db.authenticate
                 let sync = await db.sync()
 
@@ -34,7 +30,7 @@ for (let i = 0;i<600;++i){ //600 registros fakes
                     await models.Empresa.create(empr)
                 }
 
-            console.log("okk")
+            console.log("Base de datos llenada con elementos falsos")
             process.exit(0)
             }catch(e){
                 console.log(e)
@@ -42,4 +38,4 @@ for (let i = 0;i<600;++i){ //600 registros fakes
             }
         }
         
-asd()
+asd();
